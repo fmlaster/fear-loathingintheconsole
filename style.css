@@ -589,3 +589,49 @@ body::before {
     0%, 20%, 21%, 62%, 63%, 99%, 100% { transform: translate(0); }
     21%, 62% { transform: translate(2px, -2px); }
 }
+/* ============================================================
+   Week state indicators (driven by JS date engine)
+   ============================================================ */
+
+/* Current week glows gold */
+.spell-card.current-week {
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(255, 190, 11, 0.25);
+}
+
+.spell-card.current-week::after {
+    content: '▶ NOW';
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: var(--gold);
+    color: var(--midnight);
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+}
+
+/* Future weeks are dimmed — not yet written */
+.spell-card.future-week {
+    opacity: 0.4;
+    pointer-events: none;
+    filter: grayscale(0.4);
+}
+
+.spell-card.future-week::after {
+    content: 'UPCOMING';
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: var(--smoke);
+    color: var(--silver);
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+}
